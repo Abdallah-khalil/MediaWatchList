@@ -1,0 +1,31 @@
+.conatiner {
+    margin: 0 15px;
+}
+
+.example-card {
+    width: 400px;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.avatar {
+    border: 1px solid;
+    padding: 10px;
+}
+
+.avatar mat-icon {
+    vertical-align: middle;
+    padding: 8px;
+}
+
+.title {
+    padding-top: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
