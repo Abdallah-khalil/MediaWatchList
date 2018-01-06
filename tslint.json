@@ -83,7 +83,7 @@
     "prefer-const": true,
     "quotemark": [
       true,
-      "single"
+      "double"
     ],
     "radix": true,
     "semicolon": [
@@ -126,7 +126,7 @@
       "mw",
       "element",
       "app",
-      "kebab-case"      
+      "kebab-case"
     ],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,

@@ -1,3 +1,4 @@
-<div class="conatiner" *ngIf="mediaItems.length">
-  <mw-media-item *ngFor="let mediaItem of mediaItems" [mediaItem]="mediaItem"  (delete)="onMediaItemDelete($event)"></mw-media-item>
+<div layout="row">
+  <mw-media-item *ngFor="let mediaItem of mediaItems" [mediaItem]="mediaItem" (delete)="onMediaItemDelete($event)">
+  </mw-media-item>
 </div>
