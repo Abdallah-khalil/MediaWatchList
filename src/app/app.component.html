@@ -23,12 +23,12 @@
     </div>
 
     <!-- router outlet goes here -->
-    <div layout-gt-sm="row"  tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+    <div layout-gt-sm="row" layout-sm="column" layout-align="space-around start">
       <div flex-gt-sm="80">
         <mw-media-item-list></mw-media-item-list>
       </div>
       <div flex-gt-sm="20">
-        <mat-card flex>
+        <mat-card>
           <mat-card-header color="primary">
             <mat-card-title>Category</mat-card-title>
             <mat-card-subtitle>chosse a category to group by </mat-card-subtitle>
@@ -45,8 +45,8 @@
 
     </div>
 
-    <div layout-gt-xs="row" tdMediaToggle="gt-sm" flex>
-      <div flex-gt-xs="80">
+    <div layout-gt-xs="row" layout-xs="column"  flex>
+      <div flex-gt-xs="80" flex-xs="100">
         <mw-media-item-form></mw-media-item-form>
       </div>
     </div>

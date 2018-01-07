@@ -4,38 +4,42 @@
   </mat-card-header>
   <mat-card-content>
     <form (ngSubmit)="onSubmit(form.value)" [formGroup]="form">
-      <div layout-gt-xs="row" layout-wrap>
-        <mat-form-field flex-gt-xs="40" flex-xs="100">
-          <mat-select placeholder="Meduim" formControlName="meduim" required>
-            <mat-option *ngFor="let meduim of lookupLists.meduims" value="{{meduim}}"> {{meduim}} </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <div flex="1"></div>
-        <mat-form-field flex-gt-xs="40" flex-xs="100">
-          <input matInput placeholder="Enter movie name" formControlName="name" required>
-          <mat-error *ngIf="form.controls.name.errors?.required">You must enter a value</mat-error>
-          <mat-error *ngIf="form.controls.name.errors?.pattern">You must enter a valid Name</mat-error>
-        </mat-form-field>
-        <div flex="1"></div>
-
-        <mat-form-field flex-gt-xs="40" flex-xs="100">
-          <mat-select placeholder="Category" formControlName="category" required>
-            <mat-option value="Drama"> Drama </mat-option>
-            <mat-option value="Action"> Action </mat-option>
-            <mat-option value="Science Fixtion"> Science Fixtion </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <div flex="1"></div>
-
-        <mat-form-field flex-gt-xs="40" flex-xs="100">
-          <input matInput placeholder="Enter year" formControlName="year" maxlength="4" required>
-          <mat-error *ngIf="form.controls.year.errors?.required">You must enter a value</mat-error>
-          <mat-error *ngIf="form.controls.year.errors?.year">
-            Must be between {{form.controls.year.errors?.year.min }} and {{ form.controls.year.errors?.year.max }}</mat-error>
-        </mat-form-field>
-        <div flex="1"></div>
-        <button mat-raised-button color="primary" [disabled]="!form.valid" type="submit">Save</button>
+      <div layout-gt-sm="row" layout-sm="column" layout-align="space-around start">
+        <div flex-gt-sm="30" flex-lg="60" flex-sm="100">
+          <mat-form-field>
+            <mat-select placeholder="Meduim" formControlName="meduim" required>
+              <mat-option *ngFor="let meduim of lookupLists.meduims" value="{{meduim}}"> {{meduim}} </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div flex-gt-sm="30" flex-lg="60" flex-sm="100">
+          <mat-form-field>
+            <input matInput placeholder="Enter movie name" formControlName="name" required>
+            <mat-error *ngIf="form.controls.name.errors?.required">You must enter a value</mat-error>
+            <mat-error *ngIf="form.controls.name.errors?.pattern">You must enter a valid Name</mat-error>
+          </mat-form-field>
+        </div>
+        <div flex-gt-sm="30" flex-lg="30" flex-sm="100" style="padding-right:50px;">
+          <mat-form-field>
+            <mat-select placeholder="Category" formControlName="category" required>
+              <mat-option value="Drama"> Drama </mat-option>
+              <mat-option value="Action"> Action </mat-option>
+              <mat-option value="Science Fixtion"> Science Fixtion </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
       </div>
+      <div layout-gt-sm="row" layout-sm="column">
+        <div flex-gt-sm="80" flex-sm="100">
+          <mat-form-field>
+            <input matInput placeholder="Enter year" formControlName="year" maxlength="4" required>
+            <mat-error *ngIf="form.controls.year.errors?.required">You must enter a value</mat-error>
+            <mat-error *ngIf="form.controls.year.errors?.year">
+              Must be between {{form.controls.year.errors?.year.min }} and {{ form.controls.year.errors?.year.max }}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" [disabled]="!form.valid" type="submit">Save</button>
     </form>
   </mat-card-content>
 </mat-card>
