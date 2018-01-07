@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { MediaItemService } from "./media-item.service";
 
 @Component({
   selector: "mw-media-item-list",
@@ -7,42 +8,17 @@ import { Component, OnInit } from "@angular/core";
 })
 export class MediaItemListComponent implements OnInit {
   mediaItems: any[];
-  constructor() {
-    this.mediaItems = [
-      {
-        id: 1,
-        name: "Firebug",
-        year: 2016,
-        meduim: "Series",
-        category: "Sceience Fiction",
-        watchedOn: 1294166565384,
-        isFavorite: false
-      }, {
-        id: 2,
-        name: "The Small Tall",
-        year: 2017,
-        meduim: "Series",
-        category: "Sceience Fiction",
-        watchedOn: 1294166565384,
-        isFavorite: false
-      }, {
-        id: 3,
-        name: "Fast 5",
-        year: 2016,
-        meduim: "Series",
-        category: "Action",
-        watchedOn: 1294166565384,
-        isFavorite: true
-      }
-    ];
-  }
+  constructor(private mediaItemSvc: MediaItemService) {}
 
   onMediaItemDelete(mediaItem): void {
+    this.mediaItemSvc.delete(mediaItem);
+  }
 
+  getMediaItems(): void {
+    this.mediaItems = this.mediaItemSvc.get();
   }
 
   ngOnInit() {
-    console.log(this.mediaItems);
+    this.getMediaItems();
   }
-
 }

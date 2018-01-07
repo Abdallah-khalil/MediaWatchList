@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { MatIconRegistry } from "@angular/material/icon";
 import { TdMediaService } from "@covalent/core";
 import { DomSanitizer, SafeUrl } from "@angular/platform-browser";
+import { MediaItemService } from "./media-item-list/media-item.service";
 @Component({
   // tslint:disable-next-line:component-selector
   selector: "mw-app",
@@ -13,10 +14,12 @@ export class AppComponent implements OnInit {
   logoURl: SafeUrl;
   routes: {}[];
   usermenu: {}[];
+  mediaItems: {}[];
   constructor(
     public media: TdMediaService,
     private _iconRegistry: MatIconRegistry,
-    private _domSanitizer: DomSanitizer
+    private _domSanitizer: DomSanitizer,
+    private mediaItemSvc: MediaItemService
   ) {
     this._iconRegistry.addSvgIconInNamespace(
       "assets",
@@ -26,8 +29,6 @@ export class AppComponent implements OnInit {
       )
     );
   }
-
-
 
   ngOnInit(): void {
     this.name = "Polla";
@@ -76,5 +77,7 @@ export class AppComponent implements OnInit {
         title: "Sign out"
       }
     ];
+
+    this.mediaItems = this.mediaItemSvc.get();
   }
 }

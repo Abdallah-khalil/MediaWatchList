@@ -1,12 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
-body,html {
-    font-family: 'Source Sans Pro', sans-serif;
-    width: 100%;
-    height: 100vh;
-    padding: 0;
-    margin: 0;
-    background-color: #e9e9e9;
+
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+
+body,
+html {
+    background-color: #e9e9e9 !important;
+}
+
+mat-toolbar .mat-icon.mat-icon-logo {
+    width: 80px;
+    height: 80px;
+}
+
+.hoverd {
+    font-size: 35px;
 }

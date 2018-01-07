@@ -16,9 +16,9 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "mw",
       "styles": [
-        "styles.css",
         "../node_modules/@covalent/core/common/platform.scss",
-        "theme.scss"
+        "theme.scss",
+        "styles.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

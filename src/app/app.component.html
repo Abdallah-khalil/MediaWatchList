@@ -1,6 +1,6 @@
 <td-layout>
   <!-- Side Bar Component Temaple  -->
-  <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:logo" name="Abdallah Khalil" email="polla.dev@gmail.com">
+  <td-navigation-drawer flex [sidenavTitle]="name" color="primary" logo="assets:logo" name="Abdallah Khalil" email="polla.dev@gmail.com">
     <mat-nav-list>
       <a *ngFor="let item of routes" mat-list-item>
         <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
@@ -16,17 +16,40 @@
     <button mat-icon-button td-menu-button tdLayoutToggle>
       <mat-icon>menu</mat-icon>
     </button>
-    <div td-toolbar-content layout="row" layout-align="start center" flex>
-      <a mat-icon-button matTooltip="Docs" matTooltipPosition="before"  target="_blank">
+    <div td-toolbar-content layout="row" layout-align="end center" flex>
+      <a mat-icon-button matTooltip="Docs" matTooltipPosition="before" target="_blank">
         <mat-icon>chrome_reader_mode</mat-icon>
       </a>
     </div>
 
     <!-- router outlet goes here -->
-    <div layout="row" tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+    <div layout-gt-sm="row"  tdMediaToggle="gt-sm" [mediaClasses]="['push-sm']">
+      <div flex-gt-sm="80">
         <mw-media-item-list></mw-media-item-list>
+      </div>
+      <div flex-gt-sm="20">
+        <mat-card flex>
+          <mat-card-header color="primary">
+            <mat-card-title>Category</mat-card-title>
+            <mat-card-subtitle>chosse a category to group by </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-selection-list #category>
+              <mat-list-option *ngFor="let category of mediaItems | categoryList">
+                {{category}}
+              </mat-list-option>
+            </mat-selection-list>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
     </div>
 
+    <div layout-gt-xs="row" tdMediaToggle="gt-sm" flex>
+      <div flex-gt-xs="80">
+        <mw-media-item-form></mw-media-item-form>
+      </div>
+    </div>
 
     <td-layout-footer>
       <div layout="row" layout-align="start center">
