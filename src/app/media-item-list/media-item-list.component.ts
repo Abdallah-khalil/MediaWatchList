@@ -1,14 +1,20 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { MediaItemService } from "./media-item.service";
+import { ActivatedRoute } from "@angular/router";
+import { Subscription } from "rxjs/Subscription";
 
 @Component({
   selector: "mw-media-item-list",
   templateUrl: "./media-item-list.component.html",
   styleUrls: ["./media-item-list.component.css"]
 })
-export class MediaItemListComponent implements OnInit {
+export class MediaItemListComponent implements OnInit, OnDestroy {
   mediaItems: any[];
-  constructor(private mediaItemSvc: MediaItemService) {}
+  paramSubscription: Subscription;
+  constructor(
+    private mediaItemSvc: MediaItemService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   onMediaItemDelete(mediaItem): void {
     this.mediaItemSvc.delete(mediaItem);
@@ -19,6 +25,16 @@ export class MediaItemListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getMediaItems();
+    this.paramSubscription = this.activatedRoute.params.subscribe(params => {
+      let medium = params["meduim"];
+      if (medium.toLowerCase()) {
+        medium = "";
+      }
+      this.getMediaItems();
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.paramSubscription.unsubscribe();
   }
 }

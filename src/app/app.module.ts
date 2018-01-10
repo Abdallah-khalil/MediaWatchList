@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { MediaItemFormComponent } from "./media-item-form/media-item-form.component";
 import { MediaItemService } from "./media-item-list/media-item.service";
 import { lookupListToken, lookupList } from "./media-item-list/providers";
+import { AppRoutingModule } from "./app-routing/app-routing.module";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { lookupListToken, lookupList } from "./media-item-list/providers";
     BrowserAnimationsModule,
     CustomAngularMaterialModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [
     MediaItemService,

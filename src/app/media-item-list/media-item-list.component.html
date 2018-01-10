@@ -1,4 +1,29 @@
-<div layout-gt-xs="row" layout-xs="column" layout-wrap flex>
-  <mw-media-item *ngFor="let mediaItem of mediaItems" [mediaItem]="mediaItem" (delete)="onMediaItemDelete($event)">
-  </mw-media-item>
-</div>
+
+  <div layout-gt-sm="row" layout-sm="column" layout-align="space-around start" class="fullHeight">
+    <div flex-gt-sm="80" layout-gt-xs="row" layout-xs="column" layout-wrap>
+      <mw-media-item *ngFor="let mediaItem of mediaItems" [mediaItem]="mediaItem" (delete)="onMediaItemDelete($event)">
+      </mw-media-item>
+    </div>
+    <div flex-gt-sm="20">
+      <mat-card>
+        <mat-card-header color="primary">
+          <mat-card-title>Category</mat-card-title>
+          <mat-card-subtitle>chosse a category to group by </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-selection-list #category>
+            <mat-list-option *ngFor="let category of mediaItems | categoryList">
+              {{category}}
+            </mat-list-option>
+          </mat-selection-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div layout="column" layout-align="end end" flex class="pad-right">
+    <button mat-fab color="primary" matTooltip="Add Movie" matTooltipPosition="above" routerLink="/add">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+

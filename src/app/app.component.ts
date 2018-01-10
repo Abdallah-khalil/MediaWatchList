@@ -35,28 +35,18 @@ export class AppComponent implements OnInit {
     this.routes = [
       {
         icon: "home",
-        route: ".",
+        route: "/All",
         title: "Home"
       },
       {
         icon: "library_books",
-        route: ".",
-        title: "Documentation"
+        route: "/Movies",
+        title: "Movies"
       },
       {
         icon: "color_lens",
-        route: ".",
-        title: "Style Guide"
-      },
-      {
-        icon: "view_quilt",
-        route: ".",
-        title: "Layouts"
-      },
-      {
-        icon: "picture_in_picture",
-        route: ".",
-        title: "Components & Addons"
+        route: "/Series",
+        title: "Series"
       }
     ];
 

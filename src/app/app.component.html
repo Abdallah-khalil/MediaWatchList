@@ -2,7 +2,7 @@
   <!-- Side Bar Component Temaple  -->
   <td-navigation-drawer flex [sidenavTitle]="name" color="primary" logo="assets:logo" name="Abdallah Khalil" email="polla.dev@gmail.com">
     <mat-nav-list>
-      <a *ngFor="let item of routes" mat-list-item>
+      <a *ngFor="let item of routes" mat-list-item [routerLink]="item.route">
         <mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
     </mat-nav-list>
     <div td-navigation-drawer-menu>
@@ -13,6 +13,7 @@
     </div>
   </td-navigation-drawer>
   <td-layout-nav logo="assets:logo" [toolbarTitle]="name" navigationRoute="/">
+
     <button mat-icon-button td-menu-button tdLayoutToggle>
       <mat-icon>menu</mat-icon>
     </button>
@@ -23,32 +24,8 @@
     </div>
 
     <!-- router outlet goes here -->
-    <div layout-gt-sm="row" layout-sm="column" layout-align="space-around start">
-      <div flex-gt-sm="80">
-        <mw-media-item-list></mw-media-item-list>
-      </div>
-      <div flex-gt-sm="20">
-        <mat-card>
-          <mat-card-header color="primary">
-            <mat-card-title>Category</mat-card-title>
-            <mat-card-subtitle>chosse a category to group by </mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <mat-selection-list #category>
-              <mat-list-option *ngFor="let category of mediaItems | categoryList">
-                {{category}}
-              </mat-list-option>
-            </mat-selection-list>
-          </mat-card-content>
-        </mat-card>
-      </div>
-
-    </div>
-
-    <div layout-gt-xs="row" layout-xs="column"  flex>
-      <div flex-gt-xs="80" flex-xs="100">
-        <mw-media-item-form></mw-media-item-form>
-      </div>
+    <div class="conatiner-list">
+      <router-outlet></router-outlet>
     </div>
 
     <td-layout-footer>

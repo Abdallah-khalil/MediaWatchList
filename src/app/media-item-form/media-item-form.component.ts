@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { MediaItemService } from "../media-item-list/media-item.service";
 import { lookupListToken } from "../media-item-list/providers";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "mw-media-item-form",
@@ -13,11 +14,13 @@ export class MediaItemFormComponent implements OnInit {
   constructor(
     @Inject(lookupListToken) public lookupLists,
     private mediaItemSvc: MediaItemService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {}
 
   onSubmit(mediaItem: any): void {
     this.mediaItemSvc.add(mediaItem);
+    this.router.navigate(["/", mediaItem.meduim]);
   }
 
   yearValidator(control: any): any {
